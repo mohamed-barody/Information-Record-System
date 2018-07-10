@@ -1,0 +1,73 @@
+<div class="uk-padding" uk-grid>
+    <table class="uk-table">
+        <thead>
+            <tr>
+                <div>
+                  <th>$key</th>
+                  <th>Email</th>
+                  <th>Name</th>
+                  <th>Phone</th>
+                  <th>Skill</th>
+                  <th>Province</th>
+                  <th>Price</th>
+                  <th>Comment</th>
+                  <th>Aactions</th>
+                </div>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of itemArray">
+              <div *ngIf="item.uid === myUid">
+                  <td>{{item.$key}}</td>
+                  <td>{{item.email}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.phone}}</td>
+                  <td>{{item.skill}}</td>
+                  <td>{{item.province}}</td>
+                  <td>{{item.price}}</td>
+                  <td>{{item.comment}}</td>
+                  <td>
+                      <button class="uk-button uk-button-primary uk-margin-small-right" type="button" uk-toggle="target: #modal-example" (click)="editform(item.$key)">Edit</button>
+                  </td>
+                  <td>
+                      <button class="uk-button uk-button-danger uk-button-small" (click)="onDelete(item.$key)">Delete</button>
+                  </td>
+                  <div id="modal-example" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body">
+                        <h2 class="uk-modal-title">Headline</h2>
+                        <form>
+                          <fieldset class="uk-fieldset">
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" placeholder="بريدك الالكتروني"  name="email" [(ngModel)]="data.email">
+                            </div>
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" placeholder="أسمك"  name="name" [(ngModel)]="data.name">
+                            </div>
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" placeholder="رقم الهاتف"  name="phone" [(ngModel)]="data.phone">
+                            </div>
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" placeholder="المهاره"  name="skill" [(ngModel)]="data.skill">
+                            </div>
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" placeholder="المحافظه"  name="province" [(ngModel)]="data.province">
+                            </div>
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" placeholder="السعر"  name="price" [(ngModel)]="data.price">
+                            </div>
+                            <div class="uk-margin">
+                                <textarea class="uk-textarea" rows="5" placeholder="ملاحظات"  name="comment" [(ngModel)]="data.comment"></textarea>
+                            </div>
+                            </fieldset>
+                        </form>
+                        <p class="uk-text-right">
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                            <button class="uk-button uk-button-primary" type="button" (click)="onEdit(item.$key)">Save</button>
+                        </p>
+                    </div>
+                </div>
+              </div>
+            </tr>
+        </tbody>
+    </table>
+</div>

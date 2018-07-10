@@ -1,0 +1,19 @@
+<div class="uk-padding">
+
+	<div class="uk-card uk-card-default uk-card-body">
+	    <h3 class="uk-card-title">الدخول</h3>
+		<form>
+		    <fieldset class="uk-fieldset">
+		    	<div class="uk-margin">
+		            <input class="uk-input" type="text" placeholder="البريد الألكتروني"  value="email" name="email" [(ngModel)]="email">
+		        </div>
+		        <div class="uk-margin">
+		            <input class="uk-input" type="password" placeholder="كلمه السر"  value="password" name="password" [(ngModel)]="password">
+		        </div>
+		        <div class="uk-margin">
+    				<button class="uk-button uk-button-primary" (click)="myLogin()">الدخول</button>
+		        </div>
+		    </fieldset>
+		</form>
+	</div>
+</div>
